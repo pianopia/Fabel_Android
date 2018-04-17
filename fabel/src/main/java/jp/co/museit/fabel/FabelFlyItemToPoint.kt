@@ -20,11 +20,6 @@ class FabelFlyItemToPoint() {
 
     open fun flyItemToPoint(startPos: Array<Float>, endPos: Array<Float>, item: View, frameLayout: FrameLayout) {
 
-        val TAG = "tag"
-        val animation: Animation = TranslateAnimation(startPos[0],startPos[1],endPos[0],endPos[1],)
-        animation.duration = 2000
-        animation.fillAfter = true
-
         // Viewを表示する場所を指定
         //var params = FrameLayout.LayoutParams(100,100)
         //params.leftMargin = 50;
@@ -36,13 +31,23 @@ class FabelFlyItemToPoint() {
             frameLayout.addView(item)
             item.x = startPos[0]
             item.y = startPos[1]
-            //item.startAnimation(animation)
+
+            val TAG = "tag"
+            val animation: Animation = TranslateAnimation(item.x,item.y,endPos[0],endPos[1])
+            animation.duration = 2000
+            animation.fillAfter = true
+            item.startAnimation(animation)
             Log.d(TAG, item.x.toString() + item.y.toString())
         } else {
             frameLayout.addView(item)
             item.x = startPos[0]
             item.y = startPos[1]
-            //item.startAnimation(animation)
+
+            val TAG = "tag"
+            val animation: Animation = TranslateAnimation(item.x,item.y,endPos[0],endPos[1])
+            animation.duration = 2000
+            animation.fillAfter = true
+            item.startAnimation(animation)
             Log.d(TAG, item.x.toString() + item.y.toString())
         }
 
